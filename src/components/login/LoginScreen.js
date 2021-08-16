@@ -51,6 +51,9 @@ export const LoginScreen = () => {
             [target.name]: target.value // tb funciona con name: target.value / pero de esta manera selecciona por nombre de campo 
         }) 
     }
+    const handleForget = () => {
+        Swal.fire('Envinos un correo a correo@correo.cl desde el mail que tiene registrado en nuestra app')
+    }
 
     return (
         <div className="container-fluid mt-3">          
@@ -100,7 +103,7 @@ export const LoginScreen = () => {
                               </div>
                             </div>
                             <div className="row d-flex flex-row justify-content-between col-lg-10 mx-auto">
-                                <a href="https://portafolio.jrdesarrollos.cl" className="my-auto">¿Olvidaste tu contraseña?</a>
+                            <div onClick={ handleForget } className="my-auto text-info">¿Olvidaste tu contraseña?</div>
                                 <input 
                                 className="btn btn-danger btn-login col-lg-5" 
                                 type="submit" 
