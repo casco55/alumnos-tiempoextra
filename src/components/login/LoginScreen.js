@@ -53,7 +53,7 @@ export const LoginScreen = () => {
     }
 
     return (
-        <div className="container mt-3">          
+        <div className="container-fluid mt-3">          
 
             <div className="container">
                 <div className="row d-flex flex-column justify-content-center">

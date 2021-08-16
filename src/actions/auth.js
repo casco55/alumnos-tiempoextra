@@ -7,43 +7,46 @@ import { startLoading, finishLoading } from "./ui";
 
 export const startLogginUserPassword = (usuario, password, tipo ) => async dispatch => {
 
-    const URL = 'http://localhost/api-profesores/api.php';
+    const URL = 'http://localhost/api-alumnos/api.php';
 
     // const URL = 'https://apitiempoextra.jrdesarrollos.cl/api.php';
 
     dispatch( startLoading());
     const respuesta = await axios.get(`${URL}?user=${usuario}&pass=${password}&tipo=${tipo}`);
-    const userProfesor = respuesta.data.userProfesor
-    const idProfesor = respuesta.data.idProfesor
+    console.log(respuesta)
+    const userAlumno = respuesta.data.userAlumno
+    const idAlumno = respuesta.data.idAlumno
     const nombreUsuario = respuesta.data.nombreUsuario
     const apellidoUsuario = respuesta.data.apellidoUsuario
     const nombreInstitucion = respuesta.data.nombreInstitucion
+    const nombreNivel = respuesta.data.nombreNivel
 
-    localStorage.setItem('usuarioProfesor', JSON.stringify({'userProfesor': userProfesor, 'idProfesor': idProfesor, 'nombreUsuario': nombreUsuario, 'apellidoUsuario': apellidoUsuario, 'nombreInstitucion': nombreInstitucion}));
-    if(userProfesor === null){
+    localStorage.setItem('usuarioAlumno', JSON.stringify({'userAlumno': userAlumno, 'idAlumno': idAlumno, 'nombreUsuario': nombreUsuario, 'apellidoUsuario': apellidoUsuario, 'nombreInstitucion': nombreInstitucion, 'nombreNivel': nombreNivel}));
+    if(userAlumno === null){
         Swal.fire(' Error de autenticación')
         dispatch(finishLoading());
     }else{
-        dispatch( login(userProfesor, idProfesor, nombreUsuario, apellidoUsuario, nombreInstitucion) )
+        dispatch( login(userAlumno, idAlumno, nombreUsuario, apellidoUsuario, nombreInstitucion, nombreNivel) )
         dispatch(finishLoading());
     }  
     
 }
 
-export const login = ( userProfesor, idProfesor, nombreUsuario, apellidoUsuario, nombreInstitucion ) =>{
+export const login = ( userAlumno, idAlumno, nombreUsuario, apellidoUsuario, nombreInstitucion, nombreNivel ) =>{
     return {
         type: types.login,
         payload: {
-            userProfesor,
-            idProfesor,
+            userAlumno,
+            idAlumno,
             nombreUsuario,
             apellidoUsuario,
-            nombreInstitucion
+            nombreInstitucion,
+            nombreNivel
         }
     }
 }
 export const startLogout = ( dispatch ) => {
-    localStorage.removeItem('usuarioProfesor')
+    localStorage.removeItem('usuarioAlumno')
     return {
         type: types.logout,
     }

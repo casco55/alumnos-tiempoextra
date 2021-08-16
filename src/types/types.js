@@ -10,7 +10,9 @@ export const types = {
 
     editar: '[Acción] Editar',
     
-
+    cargaSemanasAlumno: '[Semanas Alumno] Carga Semanas Alumno',
+    consultaVideoEntregado: '[Consulta Entrega Video] Verificar Video Entregado',
+    guardarConArchivo: '[Guardar] Guardar con Archivo',
     
     
 }

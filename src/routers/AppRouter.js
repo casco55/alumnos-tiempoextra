@@ -19,19 +19,19 @@ export const AppRouter = () => {
     const dispatch = useDispatch();
     const [checking, setChecking] = useState(true);
     var isLoggedIn = false;
-    const { userProfesor } = useSelector(state => state.auth);
+    const { userAlumno } = useSelector(state => state.auth);
 
-    if( userProfesor === null || userProfesor === undefined){
+    if( userAlumno === null || userAlumno === undefined){
         isLoggedIn = false;
     }else{
         isLoggedIn = true;
     }   
 
     useEffect(() => {
-        const lectura = localStorage.getItem('usuarioProfesor')
+        const lectura = localStorage.getItem('usuarioAlumno')
         if(lectura){
             const rec = JSON.parse(lectura)
-            dispatch( login(rec.userProfesor, rec.idProfesor, rec.nombreUsuario, rec.apellidoUsuario, rec.nombreInstitucion))          
+            dispatch( login(rec.userAlumno, rec.idAlumno, rec.nombreUsuario, rec.apellidoUsuario, rec.nombreInstitucion, rec.nombreNivel))          
         }
         
         setChecking(false)
@@ -51,9 +51,9 @@ export const AppRouter = () => {
         
         <Router>
             
-            <div className="container-fluid">
+            
                 
-                    <div className="container-fluid">                        
+                    <div>                        
                         <Switch>
                             <PublicRoute 
                                 path="/login"
@@ -75,7 +75,7 @@ export const AppRouter = () => {
                         </Switch>
                     </div>
                 
-            </div>
+
             
             
         </Router>
