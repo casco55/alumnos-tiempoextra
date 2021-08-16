@@ -108,7 +108,7 @@ export const FormularioSubirVideo = ({idSemanaProgramaNivel, idVideoSemanal, num
                     <div className="input-group my-2 d-flex flex-column">
                         <input
                             type="submit"
-                            value="Crear Instrucción"
+                            value="Enviar"
                             className="btn btn-outline-primary mx-auto col-4"
                             disabled={ loading }
                         />
