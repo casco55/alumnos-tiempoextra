@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { startLogginUserPassword } from '../../actions/auth';
 import { ValidacionFormulario } from '../validaciones/ValidacionFormulario';
-
+import Swal from 'sweetalert2'
 // import '../../estilos/style.css'
 
 export const LoginScreen = () => {
